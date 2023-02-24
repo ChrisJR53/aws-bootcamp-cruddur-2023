@@ -53,3 +53,25 @@ A billing alarm was created to alert me once my monthly spend has exceeded 15 US
 A budget was created with varying thresholds in order to warm me if my likely spend would exceed 15 USD for a given month (Exceeded here due to my one-off 13 USD spend on domain):
 
 ![aws_budget](https://user-images.githubusercontent.com/123467130/221177928-4126bc72-089e-4c7d-a5d6-35feeea91cb0.PNG)
+
+## Homework Challenges
+### Destroy your root account credentials, Set MFA, IAM role
+A random password was created using LastPass, which was set for the root account and then not recorded anywhere:
+
+![random_password](https://user-images.githubusercontent.com/123467130/221187387-fd255f4f-c37e-4d9e-86fa-6b3f55d1e7a8.PNG)
+Password Generator Link: https://www.lastpass.com/features/password-generator#generatorTool
+
+The Google Authenticator app was used to add MFA to the admin account (root account previously had MFA):
+
+![admin_mfa](https://user-images.githubusercontent.com/123467130/221188274-c3704f01-ce30-44c5-8131-74de21efb16f.PNG)
+
+An IAM role allowing an EC2 instance to assume full access to S3 buckets was then created:
+
+![iam_role](https://user-images.githubusercontent.com/123467130/221188461-ab5da4a0-8848-4095-b488-d35cd1886b3e.PNG)
+
+### Use EventBridge to hookup Health Dashboard to SNS
+An EventBridge rule was created to sent an alert to my personal email address whenever there was an event occuring in AWS Health Dashboard:
+
+![eventbridge_alert](https://user-images.githubusercontent.com/123467130/221192170-147076b2-ae21-48eb-9797-09ecc1ff97f2.PNG)
+
+### Review all the questions of each pillars in the Well Architected Tool
