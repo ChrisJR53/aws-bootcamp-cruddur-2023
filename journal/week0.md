@@ -1,6 +1,6 @@
 # Week 0 — Billing and Architecture
 
-## Videos Watched
+## Video Content
 The following is a list of videos watched this week, which relate to thte course:
 
 - Free AWS Cloud Project Bootcamp - Week 0 - Billing and Architecture (https://www.youtube.com/live/SG8blanhAOg?feature=share)
@@ -24,12 +24,17 @@ A logical architectural diagram was completed in Lucidchart:
 ![logical_diagram](https://user-images.githubusercontent.com/123467130/221167618-d8a1615a-e043-44d1-9631-ef4a2189dd97.PNG)
 Chart link: https://lucid.app/lucidchart/ce886dde-65da-4508-86e5-d5f3a6a92d5a/edit?viewport_loc=-141%2C149%2C1899%2C1068%2C0_0&invitationId=inv_5b8d2177-4cd4-474c-9ab4-43621db971b2
 
-### Creating an Admin User
+### IAM Admin User
 The admin user aws-bootcamp-admin was created with AWS managed policies AdministratorAccess and IAMUserChangePassword:
 
 ![admin_user](https://user-images.githubusercontent.com/123467130/221171584-c4882b51-d4e7-4b49-a49b-f888a5bd20e4.png)
 
-### Using CloudShell
+### AWS CloudShell
 CloudShell was briefely used to test out its capabilities:
 
 ![cloudshell_use](https://user-images.githubusercontent.com/123467130/221171758-433e3771-4d0c-4fdb-af6a-0e3652b78245.png)
+
+### AWS Credentials
+An IAM access key and secret key were created to allow programmatic access to AWS CLI from the admin account:
+
+![cli_credentials](https://user-images.githubusercontent.com/123467130/221174568-1c46cc1b-c7a2-481f-a159-6a356c1989ee.png)
