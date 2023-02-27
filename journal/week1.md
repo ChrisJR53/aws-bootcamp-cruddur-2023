@@ -30,3 +30,30 @@ I then tested that the same information could be accessed through my browser:
 
 ![Backend Success](/journal/resources/images/week1/backend_success.PNG)
 
+I then used ```$ docker stop {CONATIANER_ID}``` to stop the container, and ```$ docker image rm backend-flask --force``` to remove the image it had created:
+
+![Docker Remove Image](/journal/resources/images/week1/docker_rm_image.PNG)
+
+#### Frontend
+I ran the following commands to install npm into the frontend directory:
+```
+$ cd frontend-react-js
+$ npm i
+```
+
+I then used ```$ docker build -t frontend-react-js ./frontend-react-js``` to build the frontend image (Frontend Dockerfile was added as in the "Backend" section):
+
+![NPM Install](/journal/resources/images/week1/docker_frontend_build_run.PNG)
+
+I then successfully tested that I could load the frontend react app in my browser:
+
+![Frontend Success](/journal/resources/images/week1/frontend_success.PNG)
+
+#### Docker Compose
+I then created the ```docker-compose.yml``` file at the root of my project:
+
+![Docker Compose File](/journal/resources/images/week1/docker_compose_file.PNG)
+
+To test the Docker compose file was working I accessed it in my browser (Screenshot taken after implementing Notifications):
+
+![Docker Compose Success](/journal/resources/images/week1/docker_compose_success.PNG)
