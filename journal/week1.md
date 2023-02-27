@@ -57,3 +57,16 @@ I then created the ```docker-compose.yml``` file at the root of my project:
 To test the Docker compose file was working I accessed it in my browser (Screenshot taken after implementing Notifications):
 
 ![Docker Compose Success](/journal/resources/images/week1/docker_compose_success.PNG)
+
+### Document the Notification Endpoint for the OpenAI Document
+
+I added the documentation for the Notification endpoint in the OpenAI document and tested it worked in the preview:
+
+![OpenAI Documentation](/journal/resources/images/week1/openapi_documentation.PNG)
+
+### Write a Flask Backend Endpoint for Notifications
+
+For the backend of the app I added the service "notifications_activities" with pre-loaded data to view in the app, and added a route to the "api/activites/notifications" api:
+
+![Flask Backend](/journal/resources/images/week1/app_and_service_page.PNG)
+
