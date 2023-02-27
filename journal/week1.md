@@ -59,14 +59,63 @@ To test the Docker compose file was working I accessed it in my browser (Screens
 ![Docker Compose Success](/journal/resources/images/week1/docker_compose_success.PNG)
 
 ### Document the Notification Endpoint for the OpenAI Document
-
 I added the documentation for the Notification endpoint in the OpenAI document and tested it worked in the preview:
 
 ![OpenAI Documentation](/journal/resources/images/week1/openapi_documentation.PNG)
 
 ### Write a Flask Backend Endpoint for Notifications
-
-For the backend of the app I added the service "notifications_activities" with pre-loaded data to view in the app, and added a route to the "api/activites/notifications" api:
+For the backend of the app I added the service "notifications_activities" with pre-loaded data to view in the Flask app, and added a route to the "api/activites/notifications" api:
 
 ![Flask Backend](/journal/resources/images/week1/app_and_service_page.PNG)
 
+### Write a React Page for Notifications
+I added the react page for notifications and added an import link to the page in the React app:
+
+![React Page](/journal/resources/images/week1/notification_add_to_app.PNG)
+
+### Run DynamoDB Local Container and ensure it works
+I first installed the DymnamoDB table and then initialised a test table with the following commands:
+```
+aws dynamodb create-table \
+    --endpoint-url http://localhost:8000 \
+    --table-name Music \
+    --attribute-definitions \
+        AttributeName=Artist,AttributeType=S \
+        AttributeName=SongTitle,AttributeType=S \
+    --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \
+    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+    --table-class STANDARD
+```
+
+Then I created an item in the table with:
+```
+ws dynamodb put-item \
+    --endpoint-url http://localhost:8000 \
+    --table-name Music \
+    --item \
+        '{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}}' \
+    --return-consumed-capacity TOTAL  
+```
+
+These commands came from [100 Days of Cloud](https://github.com/100DaysOfCloud/challenge-dynamodb-local) and successfully created a table and item in DynamoDB for me:
+
+![Install DynamoDB](/journal/resources/images/week1/dynamodb_create_table.PNG)
+
+I then tried useing a few basic commands to test it was functioning correctly:
+
+![DynamoDB Test](/journal/resources/images/week1/dynamodb_table_usage.PNG)
+
+### Run Postgres Container and ensure it works
+I installed the Postgres client into my Gitpod workspace by adding the following lines to the gitpod initialization file:
+```
+  - name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+```
+
+I then logged into the Postgres table and tested some basic commands:
+
+![Postgres Table](/journal/resources/images/week1/postgres_table_usage.PNG)
