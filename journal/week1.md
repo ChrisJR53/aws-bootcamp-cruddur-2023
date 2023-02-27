@@ -76,7 +76,7 @@ I added the react page for notifications and added an import link to the page in
 ### Run DynamoDB Local Container and ensure it works
 I first installed the DymnamoDB table and then initialised a test table with the following commands:
 ```
-aws dynamodb create-table \
+$ aws dynamodb create-table \
     --endpoint-url http://localhost:8000 \
     --table-name Music \
     --attribute-definitions \
@@ -89,7 +89,7 @@ aws dynamodb create-table \
 
 Then I created an item in the table with:
 ```
-ws dynamodb put-item \
+$ ws dynamodb put-item \
     --endpoint-url http://localhost:8000 \
     --table-name Music \
     --item \
