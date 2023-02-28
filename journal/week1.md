@@ -122,15 +122,37 @@ I then logged into the Postgres table and tested some basic commands:
 
 ## Homework Challenges
 ### Push and tag an image to DockerHub
+I downloaded the Github repo to my desktop and then built the images for the frontend react app and backend flask app on WSL 2. Using ```$ docker images``` I was able to view all the images on my local machine:
 
-I downloaded the Github repo to my local machine and then built the images for the frontend react app and backend flask app on WSL 2. Below you can see the images in Docker Desktop as well:
+![WSL2 Docker Images](/journal/resources/images/week1/external_docker.PNG)
+
+Below you can also see the images in Docker Desktop as well:
 
 ![Docker Desktop](/journal/resources/images/week1/docker_desktop.PNG)
 
-I used the command ```$ docker tag 41e19adb0b0c chrisjrobinson/backend-flask``` to tag the image with my personal Docker Hub account name and then used the command ```$ docker push chrisjrobinson/backend-flask``` to push the image to my Docker Hub account (The previous commands were reproduced to uppload the frontend-react-js image as well):
+I used the command ```$ docker tag 41e19adb0b0c chrisjrobinson/backend-flask``` to tag the image with my personal Docker Hub account name and then used ```$ docker push chrisjrobinson/backend-flask``` to push the image to my Docker Hub account (The previous commands were reproduced to uppload the frontend-react-js image as well):
 
 ![Docker Tag and Push](/journal/resources/images/week1/docker_hub_tag_push.PNG)
 
 Here you can see the images successfully uploaded to my Docker Hub account:
 
 ![Docker Hub Proof](/journal/resources/images/week1/docker_hub_proof.PNG)
+
+### Learn how to install Docker on your local machine and get the same containers running outside of Gitpod / Codespaces
+I installed [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) on my local machine and used the ```$ docker compose up``` command in WSL 2 to build the environment for the containers:
+
+![Docker Desktop Compose Up](/journal/resources/images/week1/docker_local.PNG)
+
+Initially I couldn't access the frontend or backend apps at all until I changed the ```FRONTEND_URL``` to ```0.0.0.0:3000``` and the ```BACKEND_URL``` to ```0.0.0.0:4567``` in the docker-compose.yml file:
+
+![Compose File Change](/journal/resources/images/week1/docker_local_changes.PNG)
+
+This allowed me to access the frontend app running locally:
+
+![Frontend Local](/journal/resources/images/week1/docker_local_frontend.PNG)
+
+As well as the backend locally, adding the suffix ```/api/activites/home``` to the URL:
+
+![Backend Local](/journal/resources/images/week1/docker_local_backend.PNG)
+
+However as you can see in my local frontend app screenshot 2 images above, I couldn't get the frontned to comunicate with the backend locally, which is why I classed this homework challenge as only a partial success.
