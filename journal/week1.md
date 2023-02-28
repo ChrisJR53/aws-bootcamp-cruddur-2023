@@ -119,3 +119,18 @@ I installed the Postgres client into my Gitpod workspace by adding the following
 I then logged into the Postgres table and tested some basic commands:
 
 ![Postgres Table](/journal/resources/images/week1/postgres_table_usage.PNG)
+
+## Homework Challenges
+### Push and tag an image to DockerHub
+
+I downloaded the Github repo to my local machine and then built the images for the frontend react app and backend flask app on WSL 2. Below you can see the images in Docker Desktop as well:
+
+![Docker Desktop](/journal/resources/images/week1/docker_desktop.PNG)
+
+I used the command ```$ docker tag 41e19adb0b0c chrisjrobinson/backend-flask``` to tag the image with my personal Docker Hub account name and then used the command ```$ docker push chrisjrobinson/backend-flask``` to push the image to my Docker Hub account (The previous commands were reproduced to uppload the frontend-react-js image as well):
+
+![Docker Tag and Push](/journal/resources/images/week1/docker_hub_tag_push.PNG)
+
+Here you can see the images successfully uploaded to my Docker Hub account:
+
+![Docker Hub Proof](/journal/resources/images/week1/docker_hub_proof.PNG)
