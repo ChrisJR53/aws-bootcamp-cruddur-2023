@@ -39,3 +39,34 @@ I then searched using the visualize ```HEATMAP(duration_ms)``` to provide a heat
 ![Honeycomb Heatmap](/journal/resources/images/week2/08_honeycomb_heatmap_p90.PNG)
 (Apologies for lightmode here, the heatmap dots wouldn't show otherwise!)
 
+### Instrument AWS X-Ray
+Firstly I added the AWS X-Ray requirements to the ```requirements.txt``` file in the flask app, and then installed it with ```$ pip install -r requirements.txt```:
+
+![Xray Install](/journal/resources/images/week2/09_xray_install.PNG)
+
+I then created the file ```aws/json/xray.json``` and added the "Cruddur" sampling rule. I then used the code below to create the "Cruddur" group in AWS X-Ray
+```
+$ aws xray create-group \
+    --group-name "Cruddur" \
+    --filter-expression "service(\"$FLASK_ADDRESS\") {fault OR error}"
+```
+The terminal output confirms the successful creation of this group:
+
+![Xray Group](/journal/resources/images/week2/10_xray_create_group.PNG)
+
+My AWS console also confirms the "Cruddur" group creation:
+
+![Console Proof](/journal/resources/images/week2/11_xray_group_proof.PNG)
+
+I then created a filter for X-Ray using ```$ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json```:
+
+![Xray Filter](/journal/resources/images/week2/12_xray_create_filter.PNG)
+
+Next I used ```$ docker compose up``` and viewed the output for the flask app to confirm X-Ray data was being sent to AWS:
+
+![Xray Data](/journal/resources/images/week2/13_xray_send_data.PNG)
+
+Finally I could confirm the traces had made their way into my AWS console for viewing:
+
+![Xray Success](/journal/resources/images/week2/14_xray_success.PNG)
+
