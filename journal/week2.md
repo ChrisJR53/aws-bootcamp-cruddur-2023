@@ -83,3 +83,23 @@ Finally I used ```$ docker compose up``` and confirmed that logs were being sent
 
 ![CloudWatch Proof](/journal/resources/images/week2/17_cloudwatch_proof.PNG)
 
+### Integrate Rollbar and capture and error
+Firstly I added the Rollbar requirements to the ```requirements.txt``` file in the flask app, and then installed it with ```$ pip install -r requirements.txt```:
+
+![Rollbar Requirements](/journal/resources/images/week2/18_rollbar_reqs.PNG)
+
+I then added the setup configuration to the backend ```app.py``` file:
+
+![Rollbar Imports](/journal/resources/images/week2/19_rollbar_imports.PNG)
+
+I then added the code to setup and run rollbar within the application with the environment name "production":
+
+![Rollbar Setup](/journal/resources/images/week2/20_rollbar_setup.PNG)
+
+I then added a test function which would report to Rollbar when accessing the backend app URL with ```/rollbar/test``` appended to it:
+
+![Rollbar Test](/journal/resources/images/week2/21_rollbar_test.PNG)
+
+Finally I used ```$ docker compose up``` and removed the line ```return results``` from the ```/api/activities/home``` page to purposely generate an error. The logs were successfully delivered to my Rollbar dashboard:
+
+![Rollbar Proof](/journal/resources/images/week2/22_rollbar_proof.PNG)
