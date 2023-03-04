@@ -70,3 +70,16 @@ Finally I could confirm the traces had made their way into my AWS console for vi
 
 ![Xray Success](/journal/resources/images/week2/14_xray_success.PNG)
 
+### Configure custom logger to send to CloudWatch Logs
+Firstly I added the AWS CloudWatch requirements to the ```requirements.txt``` file in the flask app, and then installed it with ```$ pip install -r requirements.txt```:
+
+![Install Watchtower](/journal/resources/images/week2/15_cloudwatch_watchtower.PNG)
+
+I then added the setup configuration to the backend ```app.py``` file:
+
+![CloudWatch Setup](/journal/resources/images/week2/16_cloudwatch_app_install.PNG)
+
+Finally I used ```$ docker compose up``` and confirmed that logs were being sent to my AWS account:
+
+![CloudWatch Proof](/journal/resources/images/week2/17_cloudwatch_proof.PNG)
+
