@@ -68,7 +68,7 @@ Right after adding the SignupPage code, I added the required lines of code for m
 
 I successfully added a new user through the Cruddur webpage, which sent me an email confirmation code, and then took me to the confirmation page:
 
-![New User](/journal/resources/images/week3/16_resend_email_test.png)
+![New User](/journal/resources/images/week3/16_resend_email_test_redo.png)
 
 After activating the user with my email activation code, the user was displayed as verified on Cognito:
 
