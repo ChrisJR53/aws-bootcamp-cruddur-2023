@@ -57,12 +57,12 @@ I replaced the old User Pool ID and Client ID details in ```docker-compose.yml``
 
 ![Docker Compose Details](/journal/resources/images/week3/13_signup_pool_details.PNG)
 
-I added the required lines of code to my ```SigninPage.js``` file:
+I added the required lines of code to my ```SignupPage.js``` file:
 
-![SigninPage Code](/journal/resources/images/week3/14_signup_page_code.PNG)
+![SignupPage Code](/journal/resources/images/week3/14_signup_page_code.PNG)
 
 ### Implement Custom Confirmation Page
-Right after adding the SigninPage code, I added the required lines of code for my ```ConfirmationPage.js``` file:
+Right after adding the SignupPage code, I added the required lines of code for my ```ConfirmationPage.js``` file:
 
 ![ConfirmationPage Code](/journal/resources/images/week3/15_confirmation_page_code.PNG)
 
