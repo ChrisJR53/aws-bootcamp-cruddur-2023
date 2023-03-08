@@ -95,7 +95,7 @@ I confirmed the recovery feature to reset my password was working correctly on t
 ### Test "Resend Activation Code" button
 As a **bouns** objective I tested out the "Resend Activation Code" button on the email confirmation page, this worked but only after adding my email into the "Email" input box:
 
-![Resend Code](/journal/resources/images/week3/16_resend_email_test.png)
+![Resend Code](/journal/resources/images/week3/16_resend_email_test_redo.png)
 
 I confirmed I was indeed emailed a second verification code:
 
