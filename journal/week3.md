@@ -91,7 +91,7 @@ I confirmed the recovery feature to reset my password was working correctly on t
 
 ![Recovery Success](/journal/resources/images/week3/22_password_recovery_success.PNG)
 
-## Homework Challenges
+## Bonus Tasks
 ### Test "Resend Activation Code" button
 As a **bouns** objective I tested out the "Resend Activation Code" button on the email confirmation page, this worked but only after adding my email into the "Email" input box:
 
@@ -101,6 +101,11 @@ I confirmed I was indeed emailed a second verification code:
 
 ![Email Code](/journal/resources/images/week3/17_confirmation_codes.png)
 
+### Make the password reset success text look better
+I modified the ```RecoverPage.css``` code to include the additions below:
 
+![Recover Page Code](/journal/resources/images/week3/23_password_reset_css_code.PNG)
 
-- Make the password reset success text look better
+Upon resetting the password on the Cruddur app, the resulting text and link was now much more readable:
+
+![Text Change Proof](/journal/resources/images/week3/24_password_reset_proof.PNG)
