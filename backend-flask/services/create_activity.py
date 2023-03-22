@@ -63,14 +63,15 @@ class CreateActivity:
       expires_at
     )
     VALUES (
-      "{user_uuid}",
-      "{message}",
-      "{expires_at}"
-    )
+      %s,
+      %s,
+      %s
+    ) RETURNING uuid;
     """
 
-    #query_commit(sql)
-
-
-
+    uuid = db.query_commit_with_returning_id(sql,
+      user_uuid,
+      message,
+      expires_at
+    )
     
