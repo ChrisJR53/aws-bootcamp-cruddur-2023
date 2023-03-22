@@ -9,7 +9,7 @@ class Db:
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
 
-  def query_commit_with_returning_id(self, sql, *args):
+  def query_commit_id(self, sql, *kwargs):
     print('SQL STATEMENT --[commit with returning]-----')
     print(sql)
     print('')
@@ -17,7 +17,7 @@ class Db:
     try:
       conn = self.pool.connection()
       cur = conn.cursor()
-      cur.execute(sql, *args)
+      cur.execute(sql, kwargs)
       returning_id = cur.fetchone()[0]
       conn.commit()
       return returning_id
