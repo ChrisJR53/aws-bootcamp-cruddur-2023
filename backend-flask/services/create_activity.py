@@ -65,4 +65,4 @@ class CreateActivity:
       'message': message,
       'expires_at': expires_at
     })
-    
+    return uuid

@@ -90,18 +90,22 @@ class Db:
     return sql
 
   def print_sql_err(self, err):
-    # get details about the exception
-    err_type, err_obj, traceback = sys.exc_info()
+    try:
+      # get details about the exception
+      err_type, err_obj, traceback = sys.exc_info()
 
-    # get the line number when exception occured
-    line_num = traceback.tb_lineno
+      # get the line number when exception occured
+      line_num = traceback.tb_lineno
 
-    # print the connect() error
-    print ("\npsycopg ERROR:", err, "on line number:", line_num)
-    print ("psycopg traceback:", traceback, "-- type:", err_type)
+      # print the connect() error
+      print ("\npsycopg ERROR:", err, "on line number:", line_num)
+      print ("psycopg traceback:", traceback, "-- type:", err_type)
 
-    # print the pgcode and pgerror exceptions
-    print ("pgerror:", err.pgerror)
-    print ("pgcode:", err.pgcode, "\n")
+      # print the pgcode and pgerror exceptions
+      print ("pgerror:", err.pgerror)
+      print ("pgcode:", err.pgcode, "\n")
+
+    except:
+      return print('Error debugger failure')
 
 db = Db()
